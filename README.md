@@ -1,4 +1,6 @@
 # VkDownloaderImages
+Language interface = RUS!
+
 Downloads photos from a group or from a VK user's page
 
 All the code in one file.
