@@ -8,50 +8,10 @@
     ".NETCoreApp,Version=v5.0": {
       "AcademiaDownloader/1.0.0": {
         "dependencies": {
-          "HtmlRenderer.Core": "1.5.0.6",
-          "HtmlRenderer.PdfSharp": "1.5.0.6",
-          "Selenium.WebDriver": "4.1.0",
-          "System.Drawing.Common": "6.0.0",
-          "System.Text.Encoding.CodePages": "6.0.0"
+          "Selenium.WebDriver": "4.1.0"
         },
         "runtime": {
           "AcademiaDownloader.dll": {}
-        }
-      },
-      "HtmlRenderer.Core/1.5.0.6": {
-        "runtime": {
-          "lib/net45/HtmlRenderer.dll": {
-            "assemblyVersion": "1.5.0.6",
-            "fileVersion": "1.5.0.6"
-          }
-        }
-      },
-      "HtmlRenderer.PdfSharp/1.5.0.6": {
-        "dependencies": {
-          "HtmlRenderer.Core": "1.5.0.6",
-          "PDFsharp": "1.32.3057"
-        },
-        "runtime": {
-          "lib/net45/HtmlRenderer.PdfSharp.dll": {
-            "assemblyVersion": "1.5.0.6",
-            "fileVersion": "1.5.0.6"
-          }
-        }
-      },
-      "Microsoft.Win32.SystemEvents/6.0.0": {
-        "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
         }
       },
       "Newtonsoft.Json/12.0.3": {
@@ -59,26 +19,6 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "12.0.0.0",
             "fileVersion": "12.0.3.23909"
-          }
-        }
-      },
-      "PDFsharp/1.32.3057": {
-        "runtime": {
-          "lib/net20/PdfSharp.Charting.dll": {
-            "assemblyVersion": "1.32.3057.0",
-            "fileVersion": "1.32.3057.0"
-          },
-          "lib/net20/PdfSharp.dll": {
-            "assemblyVersion": "1.32.3057.0",
-            "fileVersion": "1.32.3057.0"
-          }
-        },
-        "resources": {
-          "lib/net20/de/PdfSharp.Charting.resources.dll": {
-            "locale": "de"
-          },
-          "lib/net20/de/PdfSharp.resources.dll": {
-            "locale": "de"
           }
         }
       },
@@ -92,58 +32,6 @@
             "fileVersion": "4.0.0.0"
           }
         }
-      },
-      "System.Drawing.Common/6.0.0": {
-        "dependencies": {
-          "Microsoft.Win32.SystemEvents": "6.0.0"
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/System.Drawing.Common.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/unix/lib/netcoreapp3.1/System.Drawing.Common.dll": {
-            "rid": "unix",
-            "assetType": "runtime",
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          },
-          "runtimes/win/lib/netcoreapp3.1/System.Drawing.Common.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
-        }
-      },
-      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
-        "runtime": {
-          "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
-        }
-      },
-      "System.Text.Encoding.CodePages/6.0.0": {
-        "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/System.Text.Encoding.CodePages.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/netcoreapp3.1/System.Text.Encoding.CodePages.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
-        }
       }
     }
   },
@@ -153,27 +41,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "HtmlRenderer.Core/1.5.0.6": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-/WPVhzNmILIOJ1vtoiQXP7y7MJirCpHn/jqFw38wU0vv1XXbSpR2bTStmaiI2Pb2JLjnPMrVGR/7T7zKlAaaHw==",
-      "path": "htmlrenderer.core/1.5.0.6",
-      "hashPath": "htmlrenderer.core.1.5.0.6.nupkg.sha512"
-    },
-    "HtmlRenderer.PdfSharp/1.5.0.6": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-uk2lzFa/0zQSk8im2CX8ROXlqy8YAJUG28b5/G8wa0YNdO6+04bEl3iZCaThkcyNWnnIsHCn5hWR3vZjc6JhmA==",
-      "path": "htmlrenderer.pdfsharp/1.5.0.6",
-      "hashPath": "htmlrenderer.pdfsharp.1.5.0.6.nupkg.sha512"
-    },
-    "Microsoft.Win32.SystemEvents/6.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-hqTM5628jSsQiv+HGpiq3WKBl2c8v1KZfby2J6Pr7pEPlK9waPdgEO6b8A/+/xn/yZ9ulv8HuqK71ONy2tg67A==",
-      "path": "microsoft.win32.systemevents/6.0.0",
-      "hashPath": "microsoft.win32.systemevents.6.0.0.nupkg.sha512"
-    },
     "Newtonsoft.Json/12.0.3": {
       "type": "package",
       "serviceable": true,
@@ -181,40 +48,12 @@
       "path": "newtonsoft.json/12.0.3",
       "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
     },
-    "PDFsharp/1.32.3057": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-M8w6e4R+jA1j3ddPCY6jNnb8RG21ZgCr+ENapwaH5NPzNl600f1wOcCPY2hEO+jb0aCGjcMHrWk/K+PC1cw0PQ==",
-      "path": "pdfsharp/1.32.3057",
-      "hashPath": "pdfsharp.1.32.3057.nupkg.sha512"
-    },
     "Selenium.WebDriver/4.1.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-d4smisz4a/wJCM2TzkKTl+BLfvZUTvaobhKElDfCVZlvY8ThsC8VAoBNWTlg1H/GGzIP//yVGko/W0FILTgkYA==",
       "path": "selenium.webdriver/4.1.0",
       "hashPath": "selenium.webdriver.4.1.0.nupkg.sha512"
-    },
-    "System.Drawing.Common/6.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-NfuoKUiP2nUWwKZN6twGqXioIe1zVD0RIj2t976A+czLHr2nY454RwwXs6JU9Htc6mwqL6Dn/nEL3dpVf2jOhg==",
-      "path": "system.drawing.common/6.0.0",
-      "hashPath": "system.drawing.common.6.0.0.nupkg.sha512"
-    },
-    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
-      "path": "system.runtime.compilerservices.unsafe/6.0.0",
-      "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
-    },
-    "System.Text.Encoding.CodePages/6.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ZFCILZuOvtKPauZ/j/swhvw68ZRi9ATCfvGbk1QfydmcXBkIWecWKn/250UH7rahZ5OoDBaiAudJtPvLwzw85A==",
-      "path": "system.text.encoding.codepages/6.0.0",
-      "hashPath": "system.text.encoding.codepages.6.0.0.nupkg.sha512"
     }
   }
 }

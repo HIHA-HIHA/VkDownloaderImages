@@ -44,25 +44,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "HtmlRenderer.Core": {
-              "target": "Package",
-              "version": "[1.5.0.6, )"
-            },
-            "HtmlRenderer.PdfSharp": {
-              "target": "Package",
-              "version": "[1.5.0.6, )"
-            },
             "Selenium.WebDriver": {
               "target": "Package",
               "version": "[4.1.0, )"
-            },
-            "System.Drawing.Common": {
-              "target": "Package",
-              "version": "[6.0.0, )"
-            },
-            "System.Text.Encoding.CodePages": {
-              "target": "Package",
-              "version": "[6.0.0, )"
             }
           },
           "imports": [

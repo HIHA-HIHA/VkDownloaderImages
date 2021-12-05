@@ -2,46 +2,6 @@
   "version": 3,
   "targets": {
     "net5.0": {
-      "HtmlRenderer.Core/1.5.0.6": {
-        "type": "package",
-        "compile": {
-          "lib/net45/HtmlRenderer.dll": {}
-        },
-        "runtime": {
-          "lib/net45/HtmlRenderer.dll": {}
-        }
-      },
-      "HtmlRenderer.PdfSharp/1.5.0.6": {
-        "type": "package",
-        "dependencies": {
-          "HtmlRenderer.Core": "1.5.0.5",
-          "PDFsharp": "1.32.3057"
-        },
-        "compile": {
-          "lib/net45/HtmlRenderer.PdfSharp.dll": {}
-        },
-        "runtime": {
-          "lib/net45/HtmlRenderer.PdfSharp.dll": {}
-        }
-      },
-      "Microsoft.Win32.SystemEvents/6.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.dll": {}
-        },
-        "build": {
-          "buildTransitive/netcoreapp3.1/_._": {}
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.dll": {
-            "assetType": "runtime",
-            "rid": "win"
-          }
-        }
-      },
       "Newtonsoft.Json/12.0.3": {
         "type": "package",
         "compile": {
@@ -49,25 +9,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
-        }
-      },
-      "PDFsharp/1.32.3057": {
-        "type": "package",
-        "compile": {
-          "lib/net20/PdfSharp.Charting.dll": {},
-          "lib/net20/PdfSharp.dll": {}
-        },
-        "runtime": {
-          "lib/net20/PdfSharp.Charting.dll": {},
-          "lib/net20/PdfSharp.dll": {}
-        },
-        "resource": {
-          "lib/net20/de/PdfSharp.Charting.resources.dll": {
-            "locale": "de"
-          },
-          "lib/net20/de/PdfSharp.resources.dll": {
-            "locale": "de"
-          }
         }
       },
       "Selenium.WebDriver/4.1.0": {
@@ -81,138 +22,10 @@
         "runtime": {
           "lib/net5.0/WebDriver.dll": {}
         }
-      },
-      "System.Drawing.Common/6.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Win32.SystemEvents": "6.0.0"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/System.Drawing.Common.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/System.Drawing.Common.dll": {}
-        },
-        "build": {
-          "buildTransitive/netcoreapp3.1/_._": {}
-        },
-        "runtimeTargets": {
-          "runtimes/unix/lib/netcoreapp3.1/System.Drawing.Common.dll": {
-            "assetType": "runtime",
-            "rid": "unix"
-          },
-          "runtimes/win/lib/netcoreapp3.1/System.Drawing.Common.dll": {
-            "assetType": "runtime",
-            "rid": "win"
-          }
-        }
-      },
-      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll": {}
-        },
-        "build": {
-          "buildTransitive/netcoreapp3.1/_._": {}
-        }
-      },
-      "System.Text.Encoding.CodePages/6.0.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/System.Text.Encoding.CodePages.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/System.Text.Encoding.CodePages.dll": {}
-        },
-        "build": {
-          "buildTransitive/netcoreapp3.1/_._": {}
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/netcoreapp3.1/System.Text.Encoding.CodePages.dll": {
-            "assetType": "runtime",
-            "rid": "win"
-          }
-        }
       }
     }
   },
   "libraries": {
-    "HtmlRenderer.Core/1.5.0.6": {
-      "sha512": "/WPVhzNmILIOJ1vtoiQXP7y7MJirCpHn/jqFw38wU0vv1XXbSpR2bTStmaiI2Pb2JLjnPMrVGR/7T7zKlAaaHw==",
-      "type": "package",
-      "path": "htmlrenderer.core/1.5.0.6",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "htmlrenderer.core.1.5.0.6.nupkg.sha512",
-        "htmlrenderer.core.nuspec",
-        "lib/net20/HtmlRenderer.dll",
-        "lib/net20/HtmlRenderer.pdb",
-        "lib/net30/HtmlRenderer.dll",
-        "lib/net30/HtmlRenderer.pdb",
-        "lib/net35-client/HtmlRenderer.dll",
-        "lib/net35-client/HtmlRenderer.pdb",
-        "lib/net40-client/HtmlRenderer.dll",
-        "lib/net40-client/HtmlRenderer.pdb",
-        "lib/net45/HtmlRenderer.dll",
-        "lib/net45/HtmlRenderer.pdb"
-      ]
-    },
-    "HtmlRenderer.PdfSharp/1.5.0.6": {
-      "sha512": "uk2lzFa/0zQSk8im2CX8ROXlqy8YAJUG28b5/G8wa0YNdO6+04bEl3iZCaThkcyNWnnIsHCn5hWR3vZjc6JhmA==",
-      "type": "package",
-      "path": "htmlrenderer.pdfsharp/1.5.0.6",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "htmlrenderer.pdfsharp.1.5.0.6.nupkg.sha512",
-        "htmlrenderer.pdfsharp.nuspec",
-        "lib/net20/HtmlRenderer.PdfSharp.dll",
-        "lib/net20/HtmlRenderer.PdfSharp.pdb",
-        "lib/net35-client/HtmlRenderer.PdfSharp.dll",
-        "lib/net35-client/HtmlRenderer.PdfSharp.pdb",
-        "lib/net40-client/HtmlRenderer.PdfSharp.dll",
-        "lib/net40-client/HtmlRenderer.PdfSharp.pdb",
-        "lib/net45/HtmlRenderer.PdfSharp.dll",
-        "lib/net45/HtmlRenderer.PdfSharp.pdb",
-        "readme.txt"
-      ]
-    },
-    "Microsoft.Win32.SystemEvents/6.0.0": {
-      "sha512": "hqTM5628jSsQiv+HGpiq3WKBl2c8v1KZfby2J6Pr7pEPlK9waPdgEO6b8A/+/xn/yZ9ulv8HuqK71ONy2tg67A==",
-      "type": "package",
-      "path": "microsoft.win32.systemevents/6.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "buildTransitive/netcoreapp2.0/Microsoft.Win32.SystemEvents.targets",
-        "buildTransitive/netcoreapp3.1/_._",
-        "lib/net461/Microsoft.Win32.SystemEvents.dll",
-        "lib/net461/Microsoft.Win32.SystemEvents.xml",
-        "lib/net6.0/Microsoft.Win32.SystemEvents.dll",
-        "lib/net6.0/Microsoft.Win32.SystemEvents.xml",
-        "lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.dll",
-        "lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.xml",
-        "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll",
-        "lib/netstandard2.0/Microsoft.Win32.SystemEvents.xml",
-        "microsoft.win32.systemevents.6.0.0.nupkg.sha512",
-        "microsoft.win32.systemevents.nuspec",
-        "runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll",
-        "runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.xml",
-        "runtimes/win/lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.dll",
-        "runtimes/win/lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.xml",
-        "useSharedDesignerContext.txt"
-      ]
-    },
     "Newtonsoft.Json/12.0.3": {
       "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
       "type": "package",
@@ -244,23 +57,6 @@
         "packageIcon.png"
       ]
     },
-    "PDFsharp/1.32.3057": {
-      "sha512": "M8w6e4R+jA1j3ddPCY6jNnb8RG21ZgCr+ENapwaH5NPzNl600f1wOcCPY2hEO+jb0aCGjcMHrWk/K+PC1cw0PQ==",
-      "type": "package",
-      "path": "pdfsharp/1.32.3057",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net20/PdfSharp.Charting.dll",
-        "lib/net20/PdfSharp.Charting.xml",
-        "lib/net20/PdfSharp.dll",
-        "lib/net20/PdfSharp.xml",
-        "lib/net20/de/PdfSharp.Charting.resources.dll",
-        "lib/net20/de/PdfSharp.resources.dll",
-        "pdfsharp.1.32.3057.nupkg.sha512",
-        "pdfsharp.nuspec"
-      ]
-    },
     "Selenium.WebDriver/4.1.0": {
       "sha512": "d4smisz4a/wJCM2TzkKTl+BLfvZUTvaobhKElDfCVZlvY8ThsC8VAoBNWTlg1H/GGzIP//yVGko/W0FILTgkYA==",
       "type": "package",
@@ -279,118 +75,11 @@
         "selenium.webdriver.4.1.0.nupkg.sha512",
         "selenium.webdriver.nuspec"
       ]
-    },
-    "System.Drawing.Common/6.0.0": {
-      "sha512": "NfuoKUiP2nUWwKZN6twGqXioIe1zVD0RIj2t976A+czLHr2nY454RwwXs6JU9Htc6mwqL6Dn/nEL3dpVf2jOhg==",
-      "type": "package",
-      "path": "system.drawing.common/6.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "buildTransitive/netcoreapp2.0/System.Drawing.Common.targets",
-        "buildTransitive/netcoreapp3.1/_._",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net461/System.Drawing.Common.dll",
-        "lib/net461/System.Drawing.Common.xml",
-        "lib/net6.0/System.Drawing.Common.dll",
-        "lib/net6.0/System.Drawing.Common.xml",
-        "lib/netcoreapp3.1/System.Drawing.Common.dll",
-        "lib/netcoreapp3.1/System.Drawing.Common.xml",
-        "lib/netstandard2.0/System.Drawing.Common.dll",
-        "lib/netstandard2.0/System.Drawing.Common.xml",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "runtimes/unix/lib/net6.0/System.Drawing.Common.dll",
-        "runtimes/unix/lib/net6.0/System.Drawing.Common.xml",
-        "runtimes/unix/lib/netcoreapp3.1/System.Drawing.Common.dll",
-        "runtimes/unix/lib/netcoreapp3.1/System.Drawing.Common.xml",
-        "runtimes/win/lib/net6.0/System.Drawing.Common.dll",
-        "runtimes/win/lib/net6.0/System.Drawing.Common.xml",
-        "runtimes/win/lib/netcoreapp3.1/System.Drawing.Common.dll",
-        "runtimes/win/lib/netcoreapp3.1/System.Drawing.Common.xml",
-        "system.drawing.common.6.0.0.nupkg.sha512",
-        "system.drawing.common.nuspec",
-        "useSharedDesignerContext.txt"
-      ]
-    },
-    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
-      "sha512": "/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
-      "type": "package",
-      "path": "system.runtime.compilerservices.unsafe/6.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "buildTransitive/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.targets",
-        "buildTransitive/netcoreapp3.1/_._",
-        "lib/net461/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/net461/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-        "system.runtime.compilerservices.unsafe.nuspec",
-        "useSharedDesignerContext.txt"
-      ]
-    },
-    "System.Text.Encoding.CodePages/6.0.0": {
-      "sha512": "ZFCILZuOvtKPauZ/j/swhvw68ZRi9ATCfvGbk1QfydmcXBkIWecWKn/250UH7rahZ5OoDBaiAudJtPvLwzw85A==",
-      "type": "package",
-      "path": "system.text.encoding.codepages/6.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "buildTransitive/netcoreapp2.0/System.Text.Encoding.CodePages.targets",
-        "buildTransitive/netcoreapp3.1/_._",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net461/System.Text.Encoding.CodePages.dll",
-        "lib/net461/System.Text.Encoding.CodePages.xml",
-        "lib/net6.0/System.Text.Encoding.CodePages.dll",
-        "lib/net6.0/System.Text.Encoding.CodePages.xml",
-        "lib/netcoreapp3.1/System.Text.Encoding.CodePages.dll",
-        "lib/netcoreapp3.1/System.Text.Encoding.CodePages.xml",
-        "lib/netstandard2.0/System.Text.Encoding.CodePages.dll",
-        "lib/netstandard2.0/System.Text.Encoding.CodePages.xml",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "runtimes/win/lib/net461/System.Text.Encoding.CodePages.dll",
-        "runtimes/win/lib/net461/System.Text.Encoding.CodePages.xml",
-        "runtimes/win/lib/net6.0/System.Text.Encoding.CodePages.dll",
-        "runtimes/win/lib/net6.0/System.Text.Encoding.CodePages.xml",
-        "runtimes/win/lib/netcoreapp3.1/System.Text.Encoding.CodePages.dll",
-        "runtimes/win/lib/netcoreapp3.1/System.Text.Encoding.CodePages.xml",
-        "runtimes/win/lib/netstandard2.0/System.Text.Encoding.CodePages.dll",
-        "runtimes/win/lib/netstandard2.0/System.Text.Encoding.CodePages.xml",
-        "system.text.encoding.codepages.6.0.0.nupkg.sha512",
-        "system.text.encoding.codepages.nuspec",
-        "useSharedDesignerContext.txt"
-      ]
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "HtmlRenderer.Core >= 1.5.0.6",
-      "HtmlRenderer.PdfSharp >= 1.5.0.6",
-      "Selenium.WebDriver >= 4.1.0",
-      "System.Drawing.Common >= 6.0.0",
-      "System.Text.Encoding.CodePages >= 6.0.0"
+      "Selenium.WebDriver >= 4.1.0"
     ]
   },
   "packageFolders": {
@@ -437,25 +126,9 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
-          "HtmlRenderer.Core": {
-            "target": "Package",
-            "version": "[1.5.0.6, )"
-          },
-          "HtmlRenderer.PdfSharp": {
-            "target": "Package",
-            "version": "[1.5.0.6, )"
-          },
           "Selenium.WebDriver": {
             "target": "Package",
             "version": "[4.1.0, )"
-          },
-          "System.Drawing.Common": {
-            "target": "Package",
-            "version": "[6.0.0, )"
-          },
-          "System.Text.Encoding.CodePages": {
-            "target": "Package",
-            "version": "[6.0.0, )"
           }
         },
         "imports": [
@@ -476,37 +149,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Пакет \"HtmlRenderer.Core 1.5.0.6\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \"net5.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "libraryId": "HtmlRenderer.Core",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Пакет \"HtmlRenderer.PdfSharp 1.5.0.6\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \"net5.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "libraryId": "HtmlRenderer.PdfSharp",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Пакет \"PDFsharp 1.32.3057\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \"net5.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "libraryId": "PDFsharp",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  }
 }
