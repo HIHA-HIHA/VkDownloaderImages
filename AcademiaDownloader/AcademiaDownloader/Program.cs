@@ -1,26 +1,12 @@
 ﻿using System;
 using System.IO;
 using System.Net;
-using System.Net.NetworkInformation;
-using System.Xml;
-
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
-
-using TheArtOfDev.HtmlRenderer.PdfSharp;
-using TheArtOfDev.HtmlRenderer;
-
-using System.Text.Encodings;
-using System.Text;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using OpenQA.Selenium.DevTools.V85.Profiler;
 using System.Threading;
-using OpenQA.Selenium.DevTools.V94.Network;
-using Microsoft.VisualBasic.FileIO;
-using System.Runtime.CompilerServices;
-using System.Collections.ObjectModel;
+
 
 namespace AcademiaDownloader
 {
@@ -318,7 +304,7 @@ namespace AcademiaDownloader
                 Console.WriteLine($"---@ [2] Изменить группу откуда загружать                          [{stateGroup}] | {grouptUrl}");
                 Console.WriteLine($"---@ [3] Изменить путь до драйвера Chrome                          [{stateDriver}] | {driverPath}");
                 Console.WriteLine($"---@ [4] Изменить путь до папки куда будут закидывать папки парсер [{statePath}] | {parserPath}");
-                Console.WriteLine($"---@ [5] Изменить тип загрузки                                          | {typeDownload}");
+                Console.WriteLine($"---@ [5] Изменить тип загрузки                                         | {typeDownload}");
                 Console.WriteLine($"---@ [6] Логин VK                                                  [{stateLogin}] | " + vkLogin);
                 Console.WriteLine($"---@ [7] Пароль VK                                                 [{statePass}] | " + vkPass);
                 Console.WriteLine("----|--------------------------------------------------------------------------------------------------------|");
@@ -391,8 +377,6 @@ namespace AcademiaDownloader
         public static void ShowError(string error)
         {
             Console.WriteLine("----^% Ошибка: " + error);
-            Console.Write("Нажмите любую кнопку...");
-            Console.ReadKey();
         }
 
         private void ShowLogo()
@@ -435,6 +419,8 @@ namespace AcademiaDownloader
                 Parser parser = new Parser(urlGroups, pathParser, driverPath, login, pass, typeDownload);
                 Parser.ASendError += UI.ShowError;
                 Parser.ASendMessage += UI.ShowMessage;
+                Parser.AOnStopParser += StopParsers;
+
                 var thread = new Thread(new ThreadStart(parser.Start));
 
                 activeTheard = thread;
@@ -450,9 +436,34 @@ namespace AcademiaDownloader
             Parser.ASendMessage -= UI.ShowMessage;
 
             runnedParser.Stop(0);
-            Thread.Sleep(200);
-            activeTheard.Interrupt();
+            try
+            {
+                Thread.Sleep(200);
+            }
+            catch { }
+            if (activeTheard != null)
+            {
+                activeTheard.Interrupt();
+            }
+            activeTheard = null;
+            runnedParser = null;
+        }
 
+        public void StopParsers()
+        {
+
+            Parser.ASendError -= UI.ShowError;
+            Parser.ASendMessage -= UI.ShowMessage;
+
+            try
+            {
+                Thread.Sleep(200);
+            }
+            catch { }
+            if (activeTheard != null)
+            {
+                activeTheard.Interrupt();
+            }
             activeTheard = null;
             runnedParser = null;
         }
@@ -493,11 +504,13 @@ namespace AcademiaDownloader
         public static Action<string> ASendError;
         public static Action<string> ASendMessage;
 
+        public delegate void Action();
+        public static event Action AOnStopParser;
+
         public static bool Update = true;
 
         private IWebDriver driver;
         private IReadOnlyCollection<IWebElement> posts;
-
 
         private int maxCountImages = 0;
         private string urlGroup;
@@ -505,19 +518,13 @@ namespace AcademiaDownloader
         private string pathDriver;
         private string pathFolder;
 
-        private string stateDriver = "-";
-        private string statePath = "-";
-        private string stateGroup = "-";
-        private string stateLogin = "-";
-        private string statePass = "-";
-
         private string login = "+79044507796";
         private string pass = "";
 
         private bool stop = false;
         private string subString = "";
 
-        private string typeDownload;
+        private string typeDownload = "поле";
 
         public Parser(string urlGroup, string pathParser, string pathDriver, string login, string pass, string downloadFromAllImages)
         {
@@ -544,13 +551,11 @@ namespace AcademiaDownloader
         public void SetPathToParser(string path)
         {
             pathParser = path;
-            statePath = "+";
         }
 
         public void SetPathToDriver(string path)
         {
             pathDriver = path;
-            stateDriver = "+";
         }
 
         public void SendError(string error)
@@ -565,7 +570,7 @@ namespace AcademiaDownloader
 
         private bool CheckSettings()
         {
-            if (urlGroup == "" || pathDriver == "" || pathParser == "" || login == "" || pass == "")
+            if ((urlGroup == "" || urlGroup == null) ||  (pathDriver == ""|| pathDriver == null) || (pathParser == "" || pathParser == null) || (login == "" || login == null) || (pass == "" || pass == null))
             {
                 SendError("Что-то из этого не установленны:\n" +
                     $"--| Cсылка на группу\n" +
@@ -573,6 +578,7 @@ namespace AcademiaDownloader
                     $"--| Путь до папки куда будут закидываться папки\n" +
                     $"--| Логин\n" +
                     $"--| Пароль");
+                Stop(0);
                 return false;
             }
             else
@@ -590,6 +596,7 @@ namespace AcademiaDownloader
                 driver.Quit();
             }
             ASendMessage?.Invoke("Парсер закончил работу");
+            AOnStopParser?.Invoke();
 
         }
 
@@ -601,18 +608,20 @@ namespace AcademiaDownloader
         public void ChangeUrlGroup(string url)
         {
             urlGroup = url;
-            stateGroup = "+";
         }
 
         private void ParsePage()
         {
+            SendMessage(" Идёт попытка создать папку парсера...");
             pathParser = CreateFolder(pathParser);
             if (pathParser == "")
             {
                 SendError("Из-за ошибки при создании папки парсера, парсер остановлен!");
                 Stop(0);
             }
+            SendMessage(" Папка была успешна получена!");
 
+            SendMessage(" Идёт попытка запустить драйвер браузера...");
             driver = CreateDriver(pathDriver);
             if (driver == null)
             {
@@ -620,56 +629,82 @@ namespace AcademiaDownloader
                 Stop(0);
                 return;
             }
+            SendMessage(" Драйвер запушен...");
 
+            SendMessage(" [1/2] Идёт открытие страницы: " + urlGroup);
             if (!SetPage(ref driver, urlGroup))
             {
                 SendError("Из-за ошибки при загрузки страницы, парсер остановлен");
                 Stop(0);
                 return;
             }
-
+            SendMessage(" [1/2] Страница успешно открыта");
             TryAccept18();
+
+            SendMessage(" Идёт попытка зайти в аккаунт");
             LoginOnSite(driver);
+
+            SendMessage(" Скорее всего программа вошла в аккаунт...");
 
             TryAccept18();
             Thread.Sleep(2000);
 
+            SendMessage(" [2/2] Идёт открытие страницы: " + urlGroup);
             if (!SetPage(ref driver, urlGroup))
             {
                 SendError("Из-за ошибки при загрузки страницы, парсер остановлен");
                 Stop(0);
                 return;
             }
+            SendMessage(" [2/2] Страница успешно открыта");
             Thread.Sleep(600);
 
             if (typeDownload == "альбом")
             {
+                SendMessage(" Запущен режим загрузки с альбома");
                 DownloadFromAlbums();
             }
             else
             {
+                SendMessage(" Запущен режим загрузки с постов");
                 DownloadFromPosts();
             }
         }
 
         private void DownloadFromAlbums()
         {
+            SendMessage(" Идёт получение имени папки");
             var nameFolder = GetNameFolder(urlGroup) + subString;
             if (nameFolder == "")
             {
                 SendError("Из-за ошибки при получении имени папки из URL, парсер остановлен");
                 return;
             }
+            SendMessage(" Имя папку успешно получена");
 
+            SendMessage(" Идёт получение первого изображения с альбома");
+            IWebElement imageDiv = null;
             ScrollPageWidht(ref driver, 16);
-            var imageDiv = driver.FindElements(By.XPath("//*[@aria-label=\"Фотография\"]"))[0];
+            try
+            {
+                 imageDiv = driver.FindElements(By.XPath("//*[@aria-label=\"Фотография\"]"))[0];
+            }
+            catch
+            {
+                SendError("Произошла ошибка при получении первого изображения ");
+                Stop(0);
+            }
 
+            SendMessage(" Идёт процесс создания папки альбома/группы");
             pathFolder = CreateFolder(pathParser + nameFolder);
             if (pathFolder == "")
             {
-                SendError("Из-за ошибки при создании папки группы, парсер остановлен!");
+                SendError("Из-за ошибки при создании папки группы/альбома, парсер остановлен!");
                 Stop(0);
             }
+            SendMessage(" Папка альбома/группы успещно созданна");
+
+            SendMessage(" Запущен процесс скачивания фотографий");
             Actions action = new Actions(driver);
             action.MoveToElement(imageDiv).Click().Perform();
 
@@ -679,7 +714,7 @@ namespace AcademiaDownloader
                 Thread.Sleep(300);
 
                 var url = GetURL();
-                var name = GetNameImage(url) + ".jpg";
+                var name = GetNameImage(url) + ".png";
                 var path = @$"{pathFolder}\{index}_{name}";
 
 
@@ -702,13 +737,16 @@ namespace AcademiaDownloader
 
         private void DownloadFromPosts()
         {
+            SendMessage(" Идёт получение имени папки");
             var nameFolder = GetNameFolder(urlGroup) + subString;
             if (nameFolder == "")
             {
                 SendError("Из-за ошибки при получении имени папки из URL, парсер остановлен");
                 return;
             }
+            SendMessage(" Имя папку успешно получена");
 
+            SendMessage(" Идёт получение постов в группе");
             posts = driver.FindElements(By.CssSelector("div[class='page_post_sized_thumbs  clear_fix']"));
             if (posts.Count == 0)
             {
@@ -717,6 +755,7 @@ namespace AcademiaDownloader
             }
             else
             {
+                SendMessage(" Посты получены");
                 pathFolder = CreateFolder(pathParser + nameFolder);
                 if (pathFolder == "")
                 {
@@ -724,6 +763,7 @@ namespace AcademiaDownloader
                     Stop(0);
                 }
             }
+            SendMessage(" Запуск процесса скачивания фотографий");
             int index = 0;
             do
             {
@@ -811,7 +851,7 @@ namespace AcademiaDownloader
                         passwordField = webDriver.FindElement(By.CssSelector("input[id='pass']"));
                         loginFiled = webDriver.FindElement(By.CssSelector("input[id='email']"));
                     }
-                    catch (NoSuchElementException error)
+                    catch (NoSuchElementException)
                     {
                         passwordField = webDriver.FindElement(By.CssSelector("input[id='quick_pass']"));
                         loginFiled = webDriver.FindElement(By.CssSelector("input[id='quick_email']"));
@@ -845,6 +885,10 @@ namespace AcademiaDownloader
                 {
                     SendError("Ошибка при регистрации. Не найдены поля ввода");
                 }
+            }
+            else
+            {
+                SendMessage(" Нет учётных данных, процесс входа в аккаунт пропущен");
             }
         }
 
@@ -906,17 +950,8 @@ namespace AcademiaDownloader
         private string GetURL()
         {
             IWebElement layerWrap = null;
-            while (layerWrap == null)
-            {
-                try
-                {
-                    layerWrap = driver.FindElement(By.CssSelector("div[id='layer_wrap']"));
-                }
-                catch
-                {
-
-                }
-            }
+            layerWrap = driver.FindElement(By.CssSelector("div[id='layer_wrap']"));
+            Thread.Sleep(300);
             IWebElement photoDiv = null;
             while (photoDiv == null)
             {

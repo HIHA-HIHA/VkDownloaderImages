@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kwuMJg3ygYcAM5XJOQIXlflNjsG527LlWLQSsMXXfA+DUNS7Y2QL/zBL5o+Qu19Mcqmr4Wq2HjGnWZCI+Vh7nQ==",
+  "dgSpecHash": "BttzppqCGFlOI4nM+9Tza73/jFcLwTrec+2sl0S38aM37rLFuz6rjvVrvE5cwOFTvqFs7D5TtCppBFupFL7hCw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hiha\\Desktop\\ProgsForMe\\Console\\AcademiaDownloader\\AcademiaDownloader\\AcademiaDownloader.csproj",
+  "projectFilePath": "C:\\Users\\hiha\\Desktop\\VkDownloaderImages\\AcademiaDownloader\\AcademiaDownloader\\AcademiaDownloader.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hiha\\.nuget\\packages\\htmlrenderer.core\\1.5.0.6\\htmlrenderer.core.1.5.0.6.nupkg.sha512",
     "C:\\Users\\hiha\\.nuget\\packages\\htmlrenderer.pdfsharp\\1.5.0.6\\htmlrenderer.pdfsharp.1.5.0.6.nupkg.sha512",

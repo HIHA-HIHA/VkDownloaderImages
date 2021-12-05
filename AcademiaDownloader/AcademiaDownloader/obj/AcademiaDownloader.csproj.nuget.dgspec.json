@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hiha\\Desktop\\ProgsForMe\\Console\\AcademiaDownloader\\AcademiaDownloader\\AcademiaDownloader.csproj": {}
+    "C:\\Users\\hiha\\Desktop\\VkDownloaderImages\\AcademiaDownloader\\AcademiaDownloader\\AcademiaDownloader.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hiha\\Desktop\\ProgsForMe\\Console\\AcademiaDownloader\\AcademiaDownloader\\AcademiaDownloader.csproj": {
+    "C:\\Users\\hiha\\Desktop\\VkDownloaderImages\\AcademiaDownloader\\AcademiaDownloader\\AcademiaDownloader.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hiha\\Desktop\\ProgsForMe\\Console\\AcademiaDownloader\\AcademiaDownloader\\AcademiaDownloader.csproj",
+        "projectUniqueName": "C:\\Users\\hiha\\Desktop\\VkDownloaderImages\\AcademiaDownloader\\AcademiaDownloader\\AcademiaDownloader.csproj",
         "projectName": "AcademiaDownloader",
-        "projectPath": "C:\\Users\\hiha\\Desktop\\ProgsForMe\\Console\\AcademiaDownloader\\AcademiaDownloader\\AcademiaDownloader.csproj",
+        "projectPath": "C:\\Users\\hiha\\Desktop\\VkDownloaderImages\\AcademiaDownloader\\AcademiaDownloader\\AcademiaDownloader.csproj",
         "packagesPath": "C:\\Users\\hiha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hiha\\Desktop\\ProgsForMe\\Console\\AcademiaDownloader\\AcademiaDownloader\\obj\\",
+        "outputPath": "C:\\Users\\hiha\\Desktop\\VkDownloaderImages\\AcademiaDownloader\\AcademiaDownloader\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
