@@ -518,7 +518,7 @@ namespace AcademiaDownloader
         private string pathDriver;
         private string pathFolder;
 
-        private string login = "+79044507796";
+        private string login = "";
         private string pass = "";
 
         private bool stop = false;
