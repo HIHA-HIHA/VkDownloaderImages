@@ -121,7 +121,7 @@ namespace AcademiaDownloader
 
             TryAccept18();
 
-            TryLoginOnSite(driver);
+            if (!TryLoginOnSite(driver)) return;
 
             TryAccept18();
             try
@@ -486,7 +486,7 @@ namespace AcademiaDownloader
             }
         }
 
-        private void TryLoginOnSite(IWebDriver webDriver)
+        private  bool TryLoginOnSite(IWebDriver webDriver)
         {
             if (login != "" && pass != "")
             {
@@ -508,7 +508,7 @@ namespace AcademiaDownloader
                     }
                     catch (ObjectDisposedException)
                     {
-                        return;
+                        return false;
                     }
 
                     IWebElement buttonLogin = null;
@@ -518,7 +518,7 @@ namespace AcademiaDownloader
                     }
                     catch (ObjectDisposedException)
                     {
-                        return;
+                        return false;
                     }
                     catch { }
 
@@ -537,32 +537,46 @@ namespace AcademiaDownloader
                         }
                         catch (ThreadInterruptedException)
                         {
-                            return;
+                            return false;
                         }
                     }
                     catch (ObjectDisposedException)
                     {
-                        return;
+                        return false;
                     }
                     catch (Exception error)
                     {
                         SendError(error.Message);
                         SendError("Произошла ошибка при вводе текста, проверье логин и пароль");
+                        return false;
                     }
                 }
                 catch (NoSuchElementException)
                 {
                     SendError("Ошибка при регистрации. Не найдены поля ввода");
+                    return false;
                 }
                 catch (ObjectDisposedException)
                 {
-                    return;
+                    return false;
                 }
-                SendMessage(" Скорее всего программа вошла в аккаунт...");
+
+                Thread.Sleep(300);
+                if (webDriver.Url.Contains("https://vk.com/login"))
+                {
+                    SendMessage(" НЕ удалось ввойти в аккаунт");
+                    return false;
+                }
+                else
+                {
+                    SendMessage(" Удалось ввойти в аккаунт");
+                    return true ;
+                }
             }
             else
             {
                 SendMessage(" Нет учётных данных, процесс входа в аккаунт пропущен");
+                return false;
             }
         }
 
