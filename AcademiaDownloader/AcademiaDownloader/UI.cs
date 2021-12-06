@@ -53,20 +53,21 @@ namespace AcademiaDownloader
             Console.WriteLine("---@ Меню настрек параметров @--- ");
             CheckInputMenuAddGroup();
         }
-        private bool CheckInputMenuAddGroup()
+        private void CheckInputMenuAddGroup()
         {
             Console.Write("--@ url группы в VK [000 - выйти]: ");
             var input = Console.ReadLine();
 
-            if (input == "000")
+            switch (input) 
             {
-                return true;
+                case "000":
+                    return;
+                default:
+                    ChangeGroup(input);
+                    break;
             }
-            else
-            {
-                ChangeGroup(input);
-                return true;
-            }
+           
+            return;
         }
         private void ChangeGroup(string url)
         {
@@ -123,13 +124,19 @@ namespace AcademiaDownloader
         }
 
 
-        private bool CheckInputMenuAddPathDriver()
+        private void CheckInputMenuAddPathDriver()
         {
-            Console.Write("--@ Путь до драйвера \nПример: C:\\ \n---@: ");
+            Console.Write("--@ Путь до драйвера [000-выйти] \nПример: C:\\ \n---@: ");
             var input = Console.ReadLine();
-
-            ChangePathDriver(input);
-            return true;
+            switch (input)
+            {
+                case "000":
+                    return ;
+                default:
+                    ChangePathDriver(input);
+                    break;
+            }
+            return;
         }
         private void ChangePathDriver(string path)
         {
@@ -148,13 +155,20 @@ namespace AcademiaDownloader
         }
 
 
-        private bool CheckInputMenuAddPathParser()
+        private void CheckInputMenuAddPathParser()
         {
-            Console.Write("--@ Путь до папки куда будут скидывать файлы\nПример: C:\\Folder\\ \n---@: ");
+            Console.Write("--@ Путь до папки куда будут скидывать файлы [000 - выйти]\nПример: C:\\Folder\\ \n---@: ");
             var input = Console.ReadLine();
 
-            ChangePathParser(input);
-            return true;
+            switch (input)
+            {
+                case "000":
+                    return;
+                default:
+                    ChangePathParser(input);
+                    break;
+            }
+            return;
         }
         private void ChangePathParser(string path)
         {
@@ -164,20 +178,6 @@ namespace AcademiaDownloader
         }
         #endregion
 
-        #region Menu info
-
-        private void ShowMenuInfo()
-        {
-            Console.WriteLine("+----------| INFO |---------+");
-            Console.WriteLine("Для работы требуется chromedriver.exe");
-            Console.WriteLine("Для работы требуется Браузер Chrome");
-            Console.WriteLine("Версия chromedriver.exe и версия Chrome должны совпадать.");
-            Console.WriteLine("-----------------------------");
-
-        }
-
-        #endregion
-
         #region Menu login
         private void ShowMenuLogin()
         {
@@ -185,14 +185,20 @@ namespace AcademiaDownloader
             CheckInputMenuLogin();
         }
 
-
-        private bool CheckInputMenuLogin()
+        private void CheckInputMenuLogin()
         {
-            Console.Write("--@ Логин VK---@: ");
+            Console.Write("--@ Логин VK---@ [000 - выйти]: ");
             var input = Console.ReadLine();
 
-            ChangeLogin(input);
-            return true;
+            switch (input) 
+            {
+                case "000":
+                    return;
+                default:
+                    ChangeLogin(input);
+                    break;
+            }            
+            return;
         }
         private void ChangeLogin(string login)
         {
@@ -209,14 +215,23 @@ namespace AcademiaDownloader
             CheckInputMenuPass();
         }
 
-
-        private bool CheckInputMenuPass()
+        private void CheckInputMenuPass()
         {
-            Console.Write("--@ Пароль VK---@: ");
+            Console.Write("--@ Пароль VK---@ [000-выйти]: ");
             var input = Console.ReadLine();
 
-            ChangePass(input);
-            return true;
+            switch (input) 
+            {
+                case "000":
+                    return;
+                default:
+                    ChangePass(input);
+                    break;
+                    
+            }
+            
+            return;
+        
         }
         private void ChangePass(string pass)
         {
@@ -229,13 +244,13 @@ namespace AcademiaDownloader
         #region Menu Type Download
         private void ShowMenuTypeDownload()
         {
-            Console.WriteLine("---@ Меню настрек параметров @--- ");
+            Console.WriteLine("---@ Меню настрек параметров @--- [000 - выйти] ");
             CheckInputMenuTypeDownload();
         }
 
-        private bool CheckInputMenuTypeDownload()
+        private void CheckInputMenuTypeDownload()
         {
-            Console.WriteLine("--@ Тип загрузки VK---@: ");
+            Console.WriteLine("--@ Тип загрузки VK---@ [000 - выйти]: ");
             Console.WriteLine("--! 1 - загрузка с постов");
             Console.WriteLine("--! 2 - загрузка с альбома");
             Console.Write("--$ ");
@@ -243,6 +258,8 @@ namespace AcademiaDownloader
 
             switch (input)
             {
+                case "000":
+                    return;
                 case "1":
                     ChangeTypeDownload(TypeDonwload.Post);
                     break;
@@ -254,7 +271,7 @@ namespace AcademiaDownloader
                     break;
             }
 
-            return true;
+            return;
         }
         private void ChangeTypeDownload(TypeDonwload type)
         {
@@ -269,6 +286,20 @@ namespace AcademiaDownloader
             }
             stateTypeDownload = "+";
             AonChangeTypeDownload?.Invoke(type);
+
+        }
+
+        #endregion
+
+        #region Menu info
+
+        private void ShowMenuInfo()
+        {
+            Console.WriteLine("+----------| INFO |---------+");
+            Console.WriteLine("Для работы требуется chromedriver.exe");
+            Console.WriteLine("Для работы требуется Браузер Chrome");
+            Console.WriteLine("Версия chromedriver.exe и версия Chrome должны совпадать.");
+            Console.WriteLine("-----------------------------");
 
         }
 
@@ -347,7 +378,6 @@ namespace AcademiaDownloader
 
         #endregion
 
-
         private void StartParser()
         {
             Console.WriteLine("---$ Парсер запущен");
@@ -372,9 +402,9 @@ namespace AcademiaDownloader
 
         private void ShowLogo()
         {
-            Console.WriteLine("                 +-----------------------------------------+");
-            Console.WriteLine("                 +---------------| PARSER |----------------+");
-            Console.WriteLine("                 +-----------------------------------------+");
+            Console.WriteLine("                         +-----------------------------------------+");
+            Console.WriteLine("                         +---------------| PARSER |----------------+");
+            Console.WriteLine("                         +-----------------------------------------+");
         }
     }
 }
