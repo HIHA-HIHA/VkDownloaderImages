@@ -1,0 +1,7 @@
+C:\Users\hiha\Desktop\VkDownloaderImages\AcademiaDownloader\AcademiaDownloader\bin\Release\net5.0\publish\AcademiaDownloader.exe
+C:\Users\hiha\Desktop\VkDownloaderImages\AcademiaDownloader\AcademiaDownloader\bin\Release\net5.0\publish\AcademiaDownloader.dll
+C:\Users\hiha\Desktop\VkDownloaderImages\AcademiaDownloader\AcademiaDownloader\bin\Release\net5.0\publish\AcademiaDownloader.deps.json
+C:\Users\hiha\Desktop\VkDownloaderImages\AcademiaDownloader\AcademiaDownloader\bin\Release\net5.0\publish\AcademiaDownloader.runtimeconfig.json
+C:\Users\hiha\Desktop\VkDownloaderImages\AcademiaDownloader\AcademiaDownloader\bin\Release\net5.0\publish\AcademiaDownloader.pdb
+C:\Users\hiha\Desktop\VkDownloaderImages\AcademiaDownloader\AcademiaDownloader\bin\Release\net5.0\publish\Newtonsoft.Json.dll
+C:\Users\hiha\Desktop\VkDownloaderImages\AcademiaDownloader\AcademiaDownloader\bin\Release\net5.0\publish\WebDriver.dll

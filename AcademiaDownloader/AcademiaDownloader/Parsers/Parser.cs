@@ -79,7 +79,11 @@ namespace AcademiaDownloader
             stop = true;
             if (driver != null)
             {
-                driver.Quit();
+                try
+                {
+                    driver.Quit();
+                }
+                catch { }
             }
             ASendMessage?.Invoke("Парсер закончил работу");
             AOnStopParser?.Invoke();
@@ -553,7 +557,7 @@ namespace AcademiaDownloader
                 }
                 catch (NoSuchElementException)
                 {
-                    SendError("Ошибка при регистрации. Не найдены поля ввода");
+                    SendError("Ошибка при регистрации. Не найдены поля ввода, проверьте URL");
                     return false;
                 }
                 catch (ObjectDisposedException)
