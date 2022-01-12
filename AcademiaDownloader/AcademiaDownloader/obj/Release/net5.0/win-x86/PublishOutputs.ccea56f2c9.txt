@@ -1,0 +1,6 @@
+C:\Users\hiha\Desktop\VkDownloaderImages\AcademiaDownloader\AcademiaDownloader\bin\Release\net5.0\publish\win-x86\AcademiaDownloader.pdb
+C:\Users\hiha\Desktop\VkDownloaderImages\AcademiaDownloader\AcademiaDownloader\bin\Release\net5.0\publish\win-x86\clrcompression.dll
+C:\Users\hiha\Desktop\VkDownloaderImages\AcademiaDownloader\AcademiaDownloader\bin\Release\net5.0\publish\win-x86\clrjit.dll
+C:\Users\hiha\Desktop\VkDownloaderImages\AcademiaDownloader\AcademiaDownloader\bin\Release\net5.0\publish\win-x86\coreclr.dll
+C:\Users\hiha\Desktop\VkDownloaderImages\AcademiaDownloader\AcademiaDownloader\bin\Release\net5.0\publish\win-x86\mscordaccore.dll
+C:\Users\hiha\Desktop\VkDownloaderImages\AcademiaDownloader\AcademiaDownloader\bin\Release\net5.0\publish\win-x86\AcademiaDownloader.exe

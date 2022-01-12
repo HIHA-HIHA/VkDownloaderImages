@@ -7,8 +7,6 @@ namespace AcademiaDownloader
 
         static void Main(string[] args)
         {
-            new SenderToServer();
-            Console.ReadLine();
             new Launcher();
             new UI();
         }
